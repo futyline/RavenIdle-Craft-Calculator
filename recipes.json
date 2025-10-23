@@ -1,0 +1,19 @@
+{
+  "Iron Sword": {
+    "icon": "https://exemplo.com/sword.png",
+    "category": "Blacksmithing",
+    "level": 5,
+    "exp": 80,
+    "ingredients": [
+      { "qty": 2, "name": "Iron Bar" },
+      { "qty": 1, "name": "Wood Handle" }
+    ]
+  },
+  "Wooden Chair": {
+    "icon": "https://exemplo.com/chair.png",
+    "category": "Carpentry",
+    "level": 2,
+    "exp": 40,
+    "ingredients": [{ "qty": 3, "name": "Wood Plank" }]
+  }
+}

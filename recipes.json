@@ -1,19 +1,766 @@
 {
-  "Iron Sword": {
-    "icon": "https://exemplo.com/sword.png",
-    "category": "Blacksmithing",
-    "level": 5,
-    "exp": 80,
+  "Rough Plank": {
+    "icon": "https://cdn.ravenidle.com/items/28744.png",
+    "category": "Carpentry",
+    "level": 1,
+    "exp": 440,
     "ingredients": [
-      { "qty": 2, "name": "Iron Bar" },
-      { "qty": 1, "name": "Wood Handle" }
+      {
+        "qty": 5,
+        "name": "Small Log"
+      }
     ]
   },
-  "Wooden Chair": {
-    "icon": "https://exemplo.com/chair.png",
+  "Refined Plank": {
+    "icon": "https://cdn.ravenidle.com/items/28743.png",
     "category": "Carpentry",
-    "level": 2,
-    "exp": 40,
-    "ingredients": [{ "qty": 3, "name": "Wood Plank" }]
+    "level": 10,
+    "exp": 880,
+    "ingredients": [
+      {
+        "qty": 8,
+        "name": "Heavy Log"
+      }
+    ]
+  },
+  "Wooden Arch": {
+    "icon": "https://cdn.ravenidle.com/items/40286.png",
+    "category": "Carpentry",
+    "level": 20,
+    "exp": 4800,
+    "ingredients": [
+      {
+        "qty": 15,
+        "name": "Refined Plank"
+      },
+      {
+        "qty": 10,
+        "name": "Oil"
+      }
+    ]
+  },
+  "Treated Plank": {
+    "icon": "https://cdn.ravenidle.com/items/28745.png",
+    "category": "Carpentry",
+    "level": 25,
+    "exp": 1360,
+    "ingredients": [
+      {
+        "qty": 12,
+        "name": "Heavy Log"
+      },
+      {
+        "qty": 2,
+        "name": "Oil"
+      }
+    ]
+  },
+  "Sturdy Plank": {
+    "icon": "https://cdn.ravenidle.com/items/45506.png",
+    "category": "Carpentry",
+    "level": 50,
+    "exp": 1500,
+    "ingredients": [
+      {
+        "qty": 10,
+        "name": "Sturdy Log"
+      },
+      {
+        "qty": 4,
+        "name": "Oil"
+      }
+    ]
+  },
+  "Supple Wooden Arch": {
+    "icon": "https://cdn.ravenidle.com/items/40285.png",
+    "category": "Carpentry",
+    "level": 45,
+    "exp": 7600,
+    "ingredients": [
+      {
+        "qty": 15,
+        "name": "Treated Plank"
+      },
+      {
+        "qty": 20,
+        "name": "Oil"
+      }
+    ]
+  },
+  "Fine Plank": {
+    "icon": "https://cdn.ravenidle.com/items/45503.png",
+    "category": "Carpentry",
+    "level": 70,
+    "exp": 2200,
+    "ingredients": [
+      {
+        "qty": 10,
+        "name": "Fine Log"
+      },
+      {
+        "qty": 6,
+        "name": "Oil"
+      }
+    ]
+  },
+  "Coarse Leather": {
+    "icon": "https://cdn.ravenidle.com/items/35432.png",
+    "category": "Weaving",
+    "level": 1,
+    "exp": 610,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Hide"
+      }
+    ]
+  },
+  "Coarse Thread": {
+    "icon": "https://cdn.ravenidle.com/items/28971.png",
+    "category": "Weaving",
+    "level": 1,
+    "exp": 610,
+    "ingredients": [
+      {
+        "qty": 3,
+        "name": "Cotton"
+      }
+    ]
+  },
+  "Simple Cloth": {
+    "icon": "https://cdn.ravenidle.com/items/28966.png",
+    "category": "Weaving",
+    "level": 1,
+    "exp": 610,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Wool"
+      },
+      {
+        "qty": 6,
+        "name": "Spool of Hair"
+      }
+    ]
+  },
+  "Craftman's Leather": {
+    "icon": "https://cdn.ravenidle.com/items/35433.png",
+    "category": "Weaving",
+    "level": 10,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 4,
+        "name": "Hide"
+      }
+    ]
+  },
+  "Craftman's Thread": {
+    "icon": "https://cdn.ravenidle.com/items/28972.png",
+    "category": "Weaving",
+    "level": 10,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Cotton"
+      }
+    ]
+  },
+  "Craftman's Cloth": {
+    "icon": "https://cdn.ravenidle.com/items/28963.png",
+    "category": "Weaving",
+    "level": 10,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 4,
+        "name": "Wool"
+      },
+      {
+        "qty": 12,
+        "name": "Spool of Hair"
+      }
+    ]
+  },
+  "Tanned Leather": {
+    "icon": "https://cdn.ravenidle.com/items/35434.png",
+    "category": "Weaving",
+    "level": 30,
+    "exp": 1850,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Hide"
+      }
+    ]
+  },
+  "Fine Thread": {
+    "icon": "https://cdn.ravenidle.com/items/28973.png",
+    "category": "Weaving",
+    "level": 30,
+    "exp": 1850,
+    "ingredients": [
+      {
+        "qty": 9,
+        "name": "Cotton"
+      }
+    ]
+  },
+  "Silk": {
+    "icon": "https://cdn.ravenidle.com/items/28965.png",
+    "category": "Weaving",
+    "level": 30,
+    "exp": 1850,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Wool"
+      },
+      {
+        "qty": 18,
+        "name": "Spool of Hair"
+      }
+    ]
+  },
+  "Merchant's Thread": {
+    "icon": "https://cdn.ravenidle.com/items/28969.png",
+    "category": "Weaving",
+    "level": 50,
+    "exp": 2400,
+    "ingredients": [
+      {
+        "qty": 12,
+        "name": "Cotton"
+      }
+    ]
+  },
+  "Merchant's Cloth": {
+    "icon": "https://cdn.ravenidle.com/items/28964.png",
+    "category": "Weaving",
+    "level": 50,
+    "exp": 2400,
+    "ingredients": [
+      {
+        "qty": 8,
+        "name": "Wool"
+      },
+      {
+        "qty": 24,
+        "name": "Spool Of Hair"
+      }
+    ]
+  },
+  "Artisan Leather": {
+    "icon": "https://cdn.ravenidle.com/items/35436.png",
+    "category": "Weaving",
+    "level": 70,
+    "exp": 3050,
+    "ingredients": [
+      {
+        "qty": 10,
+        "name": "Hide"
+      }
+    ]
+  },
+  "Artisan Thread": {
+    "icon": "https://cdn.ravenidle.com/items/28970.png",
+    "category": "Weaving",
+    "level": 70,
+    "exp": 3050,
+    "ingredients": [
+      {
+        "qty": 15,
+        "name": "Cotton"
+      }
+    ]
+  },
+  "Artisan Cloth": {
+    "icon": "https://cdn.ravenidle.com/items/28962.png",
+    "category": "Weaving",
+    "level": 70,
+    "exp": 3050,
+    "ingredients": [
+      {
+        "qty": 10,
+        "name": "Wool"
+      },
+      {
+        "qty": 30,
+        "name": "Spool of Hair"
+      }
+    ]
+  },
+  "Glimmery Leather": {
+    "icon": "https://cdn.ravenidle.com/items/48523.png",
+    "category": "Weaving",
+    "level": 88,
+    "exp": 3850,
+    "ingredients": [
+      {
+        "qty": 3,
+        "name": "Artisan Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Merchant's Leather"
+      }
+    ]
+  },
+  "Glimmery Cloth": {
+    "icon": "https://cdn.ravenidle.com/items/48521.png",
+    "category": "Weaving",
+    "level": 88,
+    "exp": 3850,
+    "ingredients": [
+      {
+        "qty": 3,
+        "name": "Artisan Cloth"
+      },
+      {
+        "qty": 1,
+        "name": "Merchant's Cloth"
+      }
+    ]
+  },
+  "Glimmery Thread": {
+    "icon": "https://cdn.ravenidle.com/items/48525.png",
+    "category": "Weaving",
+    "level": 88,
+    "exp": 3850,
+    "ingredients": [
+      {
+        "qty": 3,
+        "name": "Artisan Thread"
+      },
+      {
+        "qty": 1,
+        "name": "Merchant's Thread"
+      }
+    ]
+  },
+  "Enforcer Armor": {
+    "icon": "https://cdn.ravenidle.com/items/28705.png",
+    "category": "Blacksmithing",
+    "level": 43,
+    "exp": 11300,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Steel Ingot"
+      },
+      {
+        "qty": 3,
+        "name": "Tanned Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Harbinger Armor"
+      },
+      {
+        "qty": 4,
+        "name": "Internal Padding"
+      }
+    ]
+  },
+  "Steel Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/28724.png",
+    "category": "Blacksmithing",
+    "level": 30,
+    "exp": 1150,
+    "ingredients": [
+      {
+        "qty": 5,
+        "name": "Iron Ore"
+      },
+      {
+        "qty": 2,
+        "name": "Coal"
+      }
+    ]
+  },
+  "Harbinger Armor": {
+    "icon": "https://cdn.ravenidle.com/items/28696.png",
+    "category": "Blacksmithing",
+    "level": 28,
+    "exp": 5800,
+    "ingredients": [
+      {
+        "qty": 4,
+        "name": "Iron Ingot"
+      },
+      {
+        "qty": 2,
+        "name": "Craftman's Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Crescent Armor"
+      },
+      {
+        "qty": 3,
+        "name": "Shell fragment"
+      }
+    ]
+  },
+  "Harbinger Helmet": {
+    "icon": "https://cdn.ravenidle.com/items/28702.png",
+    "category": "Blacksmithing",
+    "level": 31,
+    "exp": 5800,
+    "ingredients": [
+      {
+        "qty": 4,
+        "name": "Iron Ingot"
+      },
+      {
+        "qty": 2,
+        "name": "Craftman's Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Crescent Helmet"
+      },
+      {
+        "qty": 3,
+        "name": "Shell fragment"
+      }
+    ]
+  },
+  "Harbinger Legs": {
+    "icon": "https://cdn.ravenidle.com/items/28703.png",
+    "category": "Blacksmithing",
+    "level": 34,
+    "exp": 5800,
+    "ingredients": [
+      {
+        "qty": 4,
+        "name": "Iron Ingot"
+      },
+      {
+        "qty": 2,
+        "name": "Craftman's Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Crescent Legs"
+      },
+      {
+        "qty": 3,
+        "name": "Shell fragment"
+      }
+    ]
+  },
+  "Harbinger Boots": {
+    "icon": "https://cdn.ravenidle.com/items/28699.png",
+    "category": "Blacksmithing",
+    "level": 37,
+    "exp": 5800,
+    "ingredients": [
+      {
+        "qty": 4,
+        "name": "Iron Ingot"
+      },
+      {
+        "qty": 2,
+        "name": "Craftman's Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Crescent Boots"
+      },
+      {
+        "qty": 3,
+        "name": "Shell fragment"
+      }
+    ]
+  },
+  "Enforcer Helmet": {
+    "icon": "https://cdn.ravenidle.com/items/28711.png",
+    "category": "Blacksmithing",
+    "level": 46,
+    "exp": 11300,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Steel Ingot"
+      },
+      {
+        "qty": 3,
+        "name": "Tanned Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Harbinger Helmet"
+      },
+      {
+        "qty": 4,
+        "name": "Internal Padding"
+      }
+    ]
+  },
+  "Enforcer Legs": {
+    "icon": "https://cdn.ravenidle.com/items/28712.png",
+    "category": "Blacksmithing",
+    "level": 49,
+    "exp": 11300,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Steel Ingot"
+      },
+      {
+        "qty": 3,
+        "name": "Tanned Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Harbinger Legs"
+      },
+      {
+        "qty": 4,
+        "name": "Internal Padding"
+      }
+    ]
+  },
+  "Enforcer Boots": {
+    "icon": "https://cdn.ravenidle.com/items/28708.png",
+    "category": "Blacksmithing",
+    "level": 52,
+    "exp": 11300,
+    "ingredients": [
+      {
+        "qty": 6,
+        "name": "Steel Ingot"
+      },
+      {
+        "qty": 3,
+        "name": "Tanned Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Harbinger Boots"
+      },
+      {
+        "qty": 4,
+        "name": "Internal Padding"
+      }
+    ]
+  },
+  "Crescent Boots": {
+    "icon": "https://cdn.ravenidle.com/items/28695.png",
+    "category": "Blacksmithing",
+    "level": 22,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Bronze Ingot"
+      },
+      {
+        "qty": 1,
+        "name": "Coarse Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Pliant Boots"
+      }
+    ]
+  },
+  "Crescent Armor": {
+    "icon": "https://cdn.ravenidle.com/items/28687.png",
+    "category": "Blacksmithing",
+    "level": 13,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Bronze Ingot"
+      },
+      {
+        "qty": 1,
+        "name": "Coarse Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Pliant Armor"
+      }
+    ]
+  },
+  "Crescent Helmet": {
+    "icon": "https://cdn.ravenidle.com/items/28688.png",
+    "category": "Blacksmithing",
+    "level": 16,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Bronze Ingot"
+      },
+      {
+        "qty": 1,
+        "name": "Coarse Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Pliant Helmet"
+      }
+    ]
+  },
+  "Crescent Legs": {
+    "icon": "https://cdn.ravenidle.com/items/28691.png",
+    "category": "Blacksmithing",
+    "level": 19,
+    "exp": 1200,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Bronze Ingot"
+      },
+      {
+        "qty": 1,
+        "name": "Coarse Leather"
+      },
+      {
+        "qty": 1,
+        "name": "Pliant Legs"
+      }
+    ]
+  },
+  "Pliant Legs": {
+    "icon": "https://cdn.ravenidle.com/items/28685.png",
+    "category": "Blacksmithing",
+    "level": 7,
+    "exp": 600,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Cooper Ingot"
+      }
+    ]
+  },
+  "Pliant Helmet": {
+    "icon": "https://cdn.ravenidle.com/items/28684.png",
+    "category": "Blacksmithing",
+    "level": 5,
+    "exp": 600,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Cooper Ingot"
+      }
+    ]
+  },
+  "Pliant Armor": {
+    "icon": "https://cdn.ravenidle.com/items/28678.png",
+    "category": "Blacksmithing",
+    "level": 3,
+    "exp": 600,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Cooper Ingot"
+      }
+    ]
+  },
+  "Pliant Boots": {
+    "icon": "https://cdn.ravenidle.com/items/28681.png",
+    "category": "Blacksmithing",
+    "level": 9,
+    "exp": 600,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Cooper Ingot"
+      }
+    ]
+  },
+  "Bronze Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/49614.png",
+    "category": "Blacksmithing",
+    "level": 10,
+    "exp": 660,
+    "ingredients": [
+      {
+        "qty": 2,
+        "name": "Cooper Ore"
+      },
+      {
+        "qty": 3,
+        "name": "Tin Ore"
+      }
+    ]
+  },
+  "Iron Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/28723.png",
+    "category": "Blacksmithing",
+    "level": 20,
+    "exp": 800,
+    "ingredients": [
+      {
+        "qty": 5,
+        "name": "Iron Ore"
+      }
+    ]
+  },
+  "Cobalt Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/28725.png",
+    "category": "Blacksmithing",
+    "level": 50,
+    "exp": 1650,
+    "ingredients": [
+      {
+        "qty": 5,
+        "name": "Cobalt Ore"
+      },
+      {
+        "qty": 3,
+        "name": "Coal"
+      }
+    ]
+  },
+  "Titanium Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/28727.png",
+    "category": "Blacksmithing",
+    "level": 70,
+    "exp": 2600,
+    "ingredients": [
+      {
+        "qty": 5,
+        "name": "Titanium Ore"
+      },
+      {
+        "qty": 4,
+        "name": "Coal"
+      }
+    ]
+  },
+  "Glimmery Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/48522.png",
+    "category": "Blacksmithing",
+    "level": 88,
+    "exp": 3850,
+    "ingredients": [
+      {
+        "qty": 3,
+        "name": "Titanium Ingot"
+      },
+      {
+        "qty": 2,
+        "name": "Cobalt Ingot"
+      }
+    ]
+  },
+  "Cooper Ingot": {
+    "icon": "https://cdn.ravenidle.com/items/28726.png",
+    "category": "Blacksmithing",
+    "level": 1,
+    "exp": 480,
+    "ingredients": [
+      {
+        "qty": 5,
+        "name": "Cooper Ore"
+      }
+    ]
   }
 }

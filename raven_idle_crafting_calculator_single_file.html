@@ -18,34 +18,31 @@
       color: #e6eef8
     }
 
-    .app {
+    option {
+      background: #111827;
+    }
 
-      margin: 0 auto
+    .app {
+      margin: 0 auto;
+
     }
 
     h1 {
-      font-size: 20px;
-      margin: 0 0 12px
+      font-size: 22px;
+      margin-bottom: 6px
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr 440px;
+      grid-template-columns: 1fr 380px;
       gap: 16px
     }
 
     .card {
       background: linear-gradient(180deg, #111827 0%, #0b1220 100%);
-      padding: 12px;
+      padding: 14px;
       border-radius: 8px;
       box-shadow: 0 6px 20px rgba(2, 6, 23, .6)
-    }
-
-    label {
-      display: block;
-      font-size: 12px;
-      color: #9fb0d8;
-      margin-bottom: 6px
     }
 
     input,
@@ -60,16 +57,36 @@
       color: inherit
     }
 
-    .row {
+    button.primary {
+      background: #0ea5a9;
+      border: 0;
+      color: #022;
+      cursor: pointer
+    }
+
+    button.ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: #9fb0d8;
+      cursor: pointer
+    }
+
+    .controls {
       display: flex;
       gap: 8px
     }
 
-    .recipe-list {
+    .output {
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 13px
+    }
+
+    .recipes-section {
+      margin-top: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-      margin-top: 8px
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px
     }
 
     .category-column {
@@ -100,34 +117,58 @@
       color: #9fb0d8
     }
 
-    button.primary {
-      background: #0ea5a9;
-      border: 0;
-      color: #022;
-      cursor: pointer
-    }
-
-    button.ghost {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, .04);
-      color: #9fb0d8
-    }
-
-    .output {
-      white-space: pre-wrap;
-      font-family: monospace;
-      font-size: 13px
-    }
-
-    .controls {
-      display: flex;
-      gap: 8px
-    }
-
     footer {
       margin-top: 12px;
       color: #6b7f9a;
-      font-size: 12px
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* MODAL */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal {
+      background: #111827;
+      padding: 16px;
+      border-radius: 8px;
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .recipe-card {
+      position: relative;
+    }
+
+    .recipe-item {
+      position: relative;
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      white-space: pre-line;
+      font-size: 12px;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .recipe-item:hover .tooltip {
+      display: block;
     }
   </style>
 </head>
@@ -135,94 +176,84 @@
 <body>
   <div class="app">
     <h1>RavenIdle - Crafting Calculator</h1>
-    <p class="small">Gerencie e calcule materiais necessários para craftar itens do RavenIdle.</p>
-
     <div class="grid">
-      <div class="card">
-        <label for="searchRecipe">Procurar receita</label>
-        <input id="searchRecipe" placeholder="Digite o nome da receita..." />
-
-        <label style="margin-top:8px">Nome do item</label>
-        <input id="itemName" placeholder="Ex: Espada de Ferro" />
-
-        <label style="margin-top:8px">Link do ícone</label>
-        <input id="itemIcon" placeholder="URL da imagem do item" />
-
-        <label style="margin-top:8px">Categoria</label>
-        <select id="itemCategory">
-          <option value="Blacksmithing">Blacksmithing</option>
-          <option value="Carpentry">Carpentry</option>
-          <option value="Cooking">Cooking</option>
-          <option value="Weaving">Weaving</option>
-          <option value="Alchemy">Alchemy</option>
-        </select>
-
-        <div class="row" style="margin-top:8px">
-          <div style="flex:1">
-            <label>Level</label>
-            <input id="itemLevel" type="number" min="1" value="1" />
-          </div>
-          <div style="flex:1">
-            <label>EXP</label>
-            <input id="itemExp" type="number" min="0" value="0" />
-          </div>
-        </div>
-
-        <label style="margin-top:8px">Ingredientes (formato: quantidade x nome)</label>
-        <textarea id="ingredients" rows="6" placeholder="Ex:\n2 x Barra de Ferro\n1 x Cabo de Madeira"></textarea>
-
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <button id="saveRecipe" class="primary">Salvar/Atualizar receita</button>
-          <button id="clearForm" class="ghost">Limpar</button>
-        </div>
-
-        <h3 style="margin-top:12px">Receitas salvas</h3>
-        <div id="recipeList" class="recipe-list"></div>
-
-        <div style="margin-top:12px;display:flex;gap:8px">
-          <button id="exportJson" class="ghost">Exportar JSON</button>
-          <button id="importJson" class="ghost">Importar JSON</button>
-        </div>
-
-        <input type="file" id="fileInput" accept="application/json" style="display:none" />
-      </div>
-
       <div class="card">
         <label for="selectItem">Escolha um item</label>
         <select id="selectItem">
           <option value="">-- selecione --</option>
         </select>
-
         <label style="margin-top:8px">Quantidade</label>
         <input id="qty" value="1" type="number" min="1" />
-
         <div class="controls" style="margin-top:8px">
           <button id="calc" class="primary">Calcular</button>
           <button id="calcFlatten" class="ghost">Mostrar árvore</button>
         </div>
-
         <h3 style="margin-top:12px">Resultado</h3>
         <div id="result" class="output"></div>
-
         <div style="margin-top:12px;display:flex;gap:8px">
           <button id="exportCSV" class="ghost">Exportar CSV</button>
           <button id="copyResult" class="ghost">Copiar</button>
         </div>
+      </div>
+      <div class="card">
+        <div class="controls">
+          <button id="addRecipe" class="primary">Adicionar Receita</button>
+          <button id="exportJson" class="ghost">Exportar JSON</button>
+          <button id="importJson" class="ghost">Importar JSON</button>
+        </div>
+        <input type="file" id="fileInput" accept="application/json" style="display:none" />
+      </div>
+    </div>
 
-        <footer>As receitas são carregadas do GitHub automaticamente se disponíveis.</footer>
+    <h2 style="margin-top:20px">Receitas</h2>
+    <div id="recipeList" class="recipes-section"></div>
+    <footer>As receitas são carregadas automaticamente do GitHub se disponíveis.</footer>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modalBg" class="modal-bg">
+    <div class="modal">
+      <h3>Adicionar/Editar Receita</h3>
+      <label>Nome do item</label>
+      <input id="itemName" placeholder="Ex: Espada de Ferro" />
+      <label style="margin-top:8px">Link do ícone</label>
+      <input id="itemIcon" placeholder="URL da imagem" />
+      <label style="margin-top:8px">Categoria</label>
+      <select id="itemCategory">
+        <option value="Blacksmithing">Blacksmithing</option>
+        <option value="Carpentry">Carpentry</option>
+        <option value="Cooking">Cooking</option>
+        <option value="Weaving">Weaving</option>
+        <option value="Alchemy">Alchemy</option>
+      </select>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <div style="flex:1">
+          <label>Level</label>
+          <input id="itemLevel" type="number" min="1" value="1" />
+        </div>
+        <div style="flex:1">
+          <label>EXP</label>
+          <input id="itemExp" type="number" min="0" value="0" />
+        </div>
+      </div>
+      <label style="margin-top:8px">Ingredientes (formato: quantidade x nome)</label>
+      <textarea id="ingredients" rows="5" placeholder="Ex:\n2 x Barra de Ferro\n1 x Cabo de Madeira"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button id="saveRecipe" class="primary">Salvar</button>
+        <button id="cancelModal" class="ghost">Cancelar</button>
       </div>
     </div>
   </div>
 
   <script>
-    let recipes = JSON.parse(localStorage.getItem('ri_recipes') || '{}');
     const $ = id => document.getElementById(id);
-
     const categories = ["Blacksmithing", "Carpentry", "Cooking", "Weaving", "Alchemy"];
+    let recipes = JSON.parse(localStorage.getItem('ri_recipes') || '{}');
+    let editing = null;
 
-    function saveToStorage() { localStorage.setItem('ri_recipes', JSON.stringify(recipes)); }
+    const saveToStorage = () => localStorage.setItem('ri_recipes', JSON.stringify(recipes));
 
-    function renderList(filter = '') {
+    function renderList() {
       const list = $("recipeList");
       list.innerHTML = '';
       const sel = $("selectItem");
@@ -233,40 +264,50 @@
         col.className = 'category-column';
         col.innerHTML = `<h4>${cat}</h4>`;
 
-        const keys = Object.keys(recipes)
-          .filter(name => recipes[name].category === cat && name.toLowerCase().includes(filter.toLowerCase()))
-          .sort();
+        const sorted = Object.keys(recipes)
+          .filter(n => recipes[n].category === cat)
+          .sort((a, b) => (recipes[a].level - recipes[b].level) || a.localeCompare(b));
 
-        keys.forEach(name => {
+        sorted.forEach(name => {
           const data = recipes[name];
           const div = document.createElement('div');
           div.className = 'recipe-item';
           div.innerHTML = `
-            <img src="${data.icon || ''}" alt="">
-            <div>
-              <strong>${name}</strong><br>
-              <span class='small'>Lv ${data.level || 1} | EXP ${data.exp || 0}</span>
-            </div>`;
+        <img src="${data.icon || ''}" alt="">
+        <div><strong>${name}</strong><br><span class='small'>Lv ${data.level || 1} | EXP ${data.exp || 0}</span></div>
+      `;
+
+          // --- Tooltip (balão flutuante) ---
+          const tooltip = document.createElement("div");
+          tooltip.className = "tooltip";
+          if (data.ingredients && data.ingredients.length > 0) {
+            tooltip.textContent = data.ingredients
+              .map(i => `${i.qty}x ${i.name}`)
+              .join("\n");
+          } else {
+            tooltip.textContent = "Sem ingredientes";
+          }
+          div.appendChild(tooltip);
+          // --- fim do tooltip ---
+
+          const btns = document.createElement('div');
+          btns.style.marginLeft = 'auto';
           const edit = document.createElement('button');
           edit.textContent = 'Editar';
           edit.className = 'ghost';
-          edit.onclick = () => {
-            $('itemName').value = name;
-            $('itemIcon').value = data.icon || '';
-            $('itemCategory').value = data.category;
-            $('itemLevel').value = data.level || 1;
-            $('itemExp').value = data.exp || 0;
-            $('ingredients').value = data.ingredients.map(i => i.qty + ' x ' + i.name).join('\n');
-          };
+          edit.onclick = () => openModal(name);
           const del = document.createElement('button');
           del.textContent = 'Apagar';
           del.className = 'ghost';
-          del.onclick = () => { if (confirm('Apagar ' + name + '?')) { delete recipes[name]; saveToStorage(); renderList($('searchRecipe').value); } };
-          const btnDiv = document.createElement('div');
-          btnDiv.style.marginLeft = 'auto';
-          btnDiv.appendChild(edit);
-          btnDiv.appendChild(del);
-          div.appendChild(btnDiv);
+          del.onclick = () => {
+            if (confirm('Apagar ' + name + '?')) {
+              delete recipes[name];
+              saveToStorage();
+              renderList();
+            }
+          };
+          btns.append(edit, del);
+          div.appendChild(btns);
           col.appendChild(div);
 
           const opt = document.createElement('option');
@@ -278,91 +319,118 @@
       });
     }
 
+
+    // Modal logic
+    function openModal(name = null) {
+      $("modalBg").style.display = "flex";
+      if (name) {
+        const d = recipes[name];
+        editing = name;
+        $('itemName').value = name;
+        $('itemIcon').value = d.icon || '';
+        $('itemCategory').value = d.category;
+        $('itemLevel').value = d.level || 1;
+        $('itemExp').value = d.exp || 0;
+        $('ingredients').value = d.ingredients.map(i => i.qty + ' x ' + i.name).join('\n');
+      } else {
+        editing = null;
+        $('itemName').value = $('itemIcon').value = $('ingredients').value = '';
+        $('itemLevel').value = 1; $('itemExp').value = 0;
+      }
+    }
+
+    $('cancelModal').onclick = () => $("modalBg").style.display = "none";
+    $('addRecipe').onclick = () => openModal();
+
     $('saveRecipe').onclick = () => {
       const name = $('itemName').value.trim();
-      if (!name) { alert('Nome do item é obrigatório'); return; }
+      if (!name) return alert('Nome obrigatório');
       const lines = $('ingredients').value.split('\n').map(l => l.trim()).filter(Boolean);
       const parsed = lines.map(l => {
-        let m = l.match(/^(\d+)\s*[xX]\s*(.+)$/);
-        if (m) return { qty: parseInt(m[1]), name: m[2].trim() };
-        return { qty: 1, name: l };
+        const m = l.match(/^(\d+)\s*[xX]\s*(.+)$/);
+        return m ? { qty: +m[1], name: m[2] } : { qty: 1, name: l };
       });
-
       recipes[name] = {
         icon: $('itemIcon').value.trim(),
         category: $('itemCategory').value,
-        level: parseInt($('itemLevel').value) || 1,
-        exp: parseInt($('itemExp').value) || 0,
+        level: +$('itemLevel').value || 1,
+        exp: +$('itemExp').value || 0,
         ingredients: parsed
       };
       saveToStorage();
-      renderList($('searchRecipe').value);
-      $('itemName').value = $('itemIcon').value = $('ingredients').value = '';
+      $("modalBg").style.display = "none";
+      renderList();
     };
 
-    $('clearForm').onclick = () => { $('itemName').value = ''; $('ingredients').value = ''; $('itemIcon').value = ''; };
-
-    $('searchRecipe').oninput = () => renderList($('searchRecipe').value);
-
-    function flatten(itemName, amount, tree = {}) {
-      if (!recipes[itemName]) { tree[itemName] = (tree[itemName] || 0) + amount; return tree; }
-      recipes[itemName].ingredients.forEach(c => flatten(c.name, c.qty * amount, tree));
+    // Calculadora
+    function flatten(item, amt, tree = {}) {
+      if (!recipes[item]) { tree[item] = (tree[item] || 0) + amt; return tree; }
+      recipes[item].ingredients.forEach(c => flatten(c.name, c.qty * amt, tree));
       return tree;
     }
-
-    function buildTree(itemName, amount) {
-      if (!recipes[itemName]) return { name: itemName, qty: amount, children: [] };
-      return { name: itemName, qty: amount, children: recipes[itemName].ingredients.map(c => buildTree(c.name, c.qty * amount)) };
+    function buildTree(item, amt) {
+      if (!recipes[item]) return { name: item, qty: amt, children: [] };
+      return { name: item, qty: amt, children: recipes[item].ingredients.map(c => buildTree(c.name, c.qty * amt)) };
     }
-
-    function printTree(node, indent = '') {
-      let s = `${indent}${node.qty} x ${node.name}`;
-      if (node.children.length) s += '\n' + node.children.map(c => printTree(c, indent + '  ')).join('\n');
+    function printTree(node, ind = '') {
+      let s = `${ind}${node.qty} x ${node.name}`;
+      if (node.children.length) s += '\n' + node.children.map(c => printTree(c, ind + '  ')).join('\n');
       return s;
     }
 
     $('calc').onclick = () => {
       const name = $('selectItem').value;
-      const qty = Math.max(1, parseInt($('qty').value) || 1);
-      if (!name) { alert('Escolha um item'); return; }
+      const qty = Math.max(1, +$('qty').value || 1);
+      if (!name) return alert('Escolha um item');
       const out = flatten(name, qty);
       $('result').textContent = Object.keys(out).sort().map(k => `${out[k]} x ${k}`).join('\n');
     };
-
     $('calcFlatten').onclick = () => {
       const name = $('selectItem').value;
-      const qty = Math.max(1, parseInt($('qty').value) || 1);
-      if (!name) { alert('Escolha um item'); return; }
+      const qty = Math.max(1, +$('qty').value || 1);
+      if (!name) return alert('Escolha um item');
       $('result').textContent = printTree(buildTree(name, qty));
+    };
+    $('exportCSV').onclick = () => {
+      const name = $('selectItem').value;
+      if (!name) return alert('Escolha um item');
+      const qty = Math.max(1, +$('qty').value || 1);
+      const out = flatten(name, qty);
+      let csv = 'Item,Quantidade\n';
+      for (let k in out) csv += `${k},${out[k]}\n`;
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'crafting.csv';
+      a.click();
+    };
+    $('copyResult').onclick = async () => {
+      await navigator.clipboard.writeText($('result').textContent || '');
+      alert('Copiado!');
     };
 
     $('exportJson').onclick = () => {
       const blob = new Blob([JSON.stringify(recipes, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'ravenidle_recipes.json'; a.click();
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'ravenidle_recipes.json';
+      a.click();
     };
-
     $('importJson').onclick = () => $('fileInput').click();
     $('fileInput').onchange = e => {
       const f = e.target.files[0]; if (!f) return;
       const r = new FileReader();
-      r.onload = () => { try { const data = JSON.parse(r.result); recipes = data; saveToStorage(); renderList(); alert('Importado'); } catch { alert('JSON inválido') } };
+      r.onload = () => {
+        try {
+          recipes = JSON.parse(r.result);
+          saveToStorage();
+          renderList();
+          alert('Importado');
+        } catch { alert('JSON inválido'); }
+      };
       r.readAsText(f);
     };
 
-    $('exportCSV').onclick = () => {
-      const name = $('selectItem').value; if (!name) return alert('Escolha um item');
-      const qty = Math.max(1, parseInt($('qty').value) || 1);
-      const out = flatten(name, qty);
-      let csv = 'Item,Quantidade\n';
-      Object.keys(out).forEach(k => csv += `${k},${out[k]}\n`);
-      const blob = new Blob([csv], { type: 'text/csv' });
-      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'crafting.csv'; a.click();
-    };
-
-    $('copyResult').onclick = async () => { await navigator.clipboard.writeText($('result').textContent || ''); alert('Copiado!'); };
-
-    // Carrega receitas do GitHub
     async function loadRecipesFromGitHub(url) {
       try {
         const res = await fetch(url);
@@ -371,9 +439,8 @@
         recipes = data;
         saveToStorage();
         renderList();
-        console.log('Receitas carregadas do GitHub.');
-      } catch (err) {
-        console.warn('Erro ao carregar do GitHub:', err);
+      } catch (e) {
+        console.warn("Erro ao carregar GitHub:", e);
         renderList();
       }
     }
